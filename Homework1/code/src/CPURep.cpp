@@ -1,7 +1,7 @@
 /* @Author
 Student Name: Mustafa Izzet Mustu
 Student ID : 504211564
-Date: 23/10/2022
+Date: 22/10/2022
 */
 #include <iostream>
 #include <stdio.h>
@@ -15,7 +15,8 @@ using namespace std;
 
 CPURep::CPURep()
 {
-    this->mFinishedProcess = NULL;
+    // Create ne FIFO
+    this->setFinishedProcess(new FIFORep);
 }
 
 CPURep::~CPURep()
@@ -24,9 +25,20 @@ CPURep::~CPURep()
 
 ProcessRep* CPURep::runCPU(ProcessRep* p, int time)
 {   
-    /*
-        YOUR CODE HEAR
-    */
+    // If there is a process decrease it's remaining time
+    if(p != NULL)
+    {
+        p->remainingTime = p->remainingTime - 1;
+        // If remaining time of the process is 0, add it to finished queue and return NULL else return the coming process
+        if(p->remainingTime == 0)
+        {
+            p->endTime = time+1;
+            this->getFinishedProcess()->queue(p);
+            return NULL;
+        }
+        return p;
+    }
+    return NULL;
 }
 
 FIFORep* CPURep::getFinishedProcess()

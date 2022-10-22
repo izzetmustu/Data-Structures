@@ -1,7 +1,7 @@
 /* @Author
 Student Name: Mustafa Izzet Mustu
 Student ID : 504211564
-Date: 23/10/2022
+Date: 22/10/2022
 */
 #include <iostream> 
 #include <stdio.h>

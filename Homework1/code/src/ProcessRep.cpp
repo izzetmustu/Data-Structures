@@ -1,7 +1,7 @@
 /* @Author
 Student Name: Mustafa Izzet Mustu
 Student ID : 504211564
-Date: 23/10/2022
+Date: 22/10/2022
 */
 #include <iostream> 
 #include <stdio.h>
@@ -14,11 +14,11 @@ using namespace std;
 ProcessRep::ProcessRep(string processType, int processID, int deliverTime, int processTime)
 {   
     // Private attributes
-    this->mProcessType = processType;
-    this->mProcessID = processID;
-    this->mDeliverTime = deliverTime;
-    this->mProcessTime = processTime;
-    this->mpNext = NULL;
+    this->setProcessType(processType);
+    this->setProcessID(processID);
+    this->setDeliverTime(deliverTime);
+    this->setProcessTime(processTime);
+    this->setNext(NULL);
 
     // Public attributes
     this->remainingTime = processTime;
