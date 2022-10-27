@@ -29,6 +29,10 @@ SchedulerRep::SchedulerRep()
 }
 SchedulerRep::~SchedulerRep()
 {
+    delete this->mpProcessFIFO[0];
+    delete this->mpProcessFIFO[1];
+    delete this->mpProcessFIFO[2];
+    delete this->pCpuObj;
 }
 
 FIFORep* SchedulerRep::getProcessFIFO(int index)
@@ -204,7 +208,6 @@ ProcessRep* SchedulerRep::sendProcessToCPU(ProcessRep* p)
     p = this->pCpuObj->runCPU(p, totalTime);
     this->totalTime++;
     return p;
-
 }
 
 void SchedulerRep::schedule(string type, int id, int arrivalTime, int processTime)
@@ -240,7 +243,6 @@ void SchedulerRep::schedule(string type, int id, int arrivalTime, int processTim
         this->setRunningProcess(NULL);
         ProcessRep* goingtoCPU = this->popProcess();
         this->setRunningProcess(goingtoCPU);
-        
     }
 }
 

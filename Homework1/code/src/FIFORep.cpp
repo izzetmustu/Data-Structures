@@ -26,6 +26,23 @@ FIFORep::FIFORep(ProcessRep* head)
 
 FIFORep::~FIFORep()
 {
+    // If head is NULL return immidiately
+    if(this->getHead() == NULL)
+    {
+        return;
+    }
+    // Else delete items
+    else
+    {
+        // Start from the head and iterate up to tail and print
+        ProcessRep* current = this->getHead();
+        while(current != NULL)
+        {
+            ProcessRep* deleted = current;
+            current = current->getNext();
+            delete deleted;
+        }
+    }
 }
 
 void FIFORep::setHead(ProcessRep* head)

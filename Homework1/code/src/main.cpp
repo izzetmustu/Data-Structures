@@ -29,13 +29,13 @@ void printProcess(SchedulerRep* , string);
 
 int main(int argc, char* argv[]) {
 	// system("clear");// make this line as comment if you are compiling on Linux or Mac
-	system("cls"); // make this line as comment if you are compiling on Windows
+	// system("cls"); // make this line as comment if you are compiling on Windows
 
     char* fileName = argv[1]; 
 
     SchedulerRep* scheduleObj = new SchedulerRep();
     read_file(fileName, scheduleObj);
-    
+    delete scheduleObj;
     return EXIT_SUCCESS;
 }
 
@@ -91,7 +91,7 @@ void read_file(char* fileName, SchedulerRep* scheduleObj)
             }
         }
         simulate(scheduleObj, arrivingJob, &initTime, arrivingJob->arrivalTime+1);
-        
+        delete arrivingJob;
     }
     file.close();
 }

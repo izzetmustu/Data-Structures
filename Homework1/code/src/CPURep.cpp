@@ -21,6 +21,7 @@ CPURep::CPURep()
 
 CPURep::~CPURep()
 {
+    delete this->mFinishedProcess;
 }
 
 ProcessRep* CPURep::runCPU(ProcessRep* p, int time)
