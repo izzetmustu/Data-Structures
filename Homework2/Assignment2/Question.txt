@@ -1,0 +1,14 @@
+We assume the values are 1 digits. If the depth is larger than 9, it will become a problem.
+
+IMPORTANT NOTE: 
+In main line 67:
+
+"newHuffman.decodePassword(encodedValPassword,encodedBinaryPassword);"
+
+is called. However, in huffman.cpp
+
+void Huffman::decodePassword(string encodedBinaryPassword, string encodedValPassword)
+
+is used and order of arguments are different. So, I just changed the order in huffman.cpp as follows:
+
+void Huffman::decodePassword(string encodedValPassword, string encodedBinaryPassword)
